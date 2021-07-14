@@ -26,7 +26,7 @@ var port string
 var apiCmd = &cobra.Command{
 	Use:   "api",
 	Short: "Api is the way to interact with application.",
-	Long:  `Api enable the '/validator' endpoint, that can receive a json with password to be validated.`,
+	Long:  `Api enable the '/validate' endpoint, that can receive a json with password to be validated.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		server := server.MakeServer(port)
 		server.Serve()

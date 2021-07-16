@@ -18,6 +18,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	server "github.com/wy7-source/iti-challenge/adapters/api"
+	"github.com/wy7-source/iti-challenge/application/services"
 )
 
 var port string
@@ -28,7 +29,8 @@ var apiCmd = &cobra.Command{
 	Short: "Api is the way to interact with application.",
 	Long:  `Api enable the '/validate' endpoint, that can receive a json with password to be validated.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		server := server.MakeServer(port)
+		passwordService := services.NewPasswordService()
+		server := server.MakeServer(port, passwordService)
 		server.Serve()
 	},
 }

@@ -4,25 +4,27 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/wy7-source/iti-challenge/adapters/dto"
-	"github.com/wy7-source/iti-challenge/application"
+	"github.com/wy7-source/iti-challenge/application/domain"
 )
 
 type Server struct {
-	Port string
+	Port            string
+	PasswordService domain.PasswordServiceInterface
 }
 
-func MakeServer(port string) *Server {
-	return &Server{Port: port}
+func MakeServer(port string, passwordService domain.PasswordServiceInterface) *Server {
+	return &Server{Port: port, PasswordService: passwordService}
 }
 
 func (s Server) ValidateHandler(w http.ResponseWriter, r *http.Request) {
 	// Call service, that call Pasword Type and Validate, than return response here.
-	var password application.Password
+	var password domain.Password
 	var passwordReceived dto.PasswordDto
-	err := json.NewDecoder(r.Body).Decode(&passwordReceived)
 
+	err := json.NewDecoder(r.Body).Decode(&passwordReceived)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write(responseFormater(err.Error()))
@@ -30,15 +32,14 @@ func (s Server) ValidateHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	err = passwordReceived.Hydrate(&password)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("false"))
-		return
-	} else {
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("true"))
+		w.Write(responseFormater("false"))
+		return
 	}
-}
 
+	result := s.PasswordService.Validate(&password)
+	w.Write(responseFormater(strconv.FormatBool(result)))
+}
 func (s Server) Serve() {
 	http.HandleFunc("/validate", s.ValidateHandler)
 	log.Fatal(http.ListenAndServe(s.Port, nil))

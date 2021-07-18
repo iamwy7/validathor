@@ -1,2 +1,5 @@
+Dockerfile @wy7-source
+README.* @wy7-source
+LICENSE @wy7-source
 .github/ @wy7-source
 *.go @wy7-source

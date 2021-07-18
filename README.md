@@ -8,10 +8,10 @@ Com o comando abaixo:
         ```bash
         docker run -p 9000:9000 wy7images/iti-challenge:v1.0.0
         ```
-    - Executável
+    - Executável: 
         Você pode baixar um executável para seu linux nesse [link](https://github.com/wy7-source/iti-challenge/releases)
 
-    - Go way
+    - Go way: 
         Com o proprio GoLang na sua máquina ( versão ^1.16.0 ) no diretório do repo:
         ``` bash
         go run main.go api

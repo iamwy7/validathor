@@ -8,11 +8,13 @@ import (
 
 func TestValidators_DuplicatesValidator(t *testing.T) {
 	value := "something"
-	matched := DuplicatesValidator(value)
-	require.True(t, matched)
+	chanTest := make(chan bool)
+	go DuplicatesValidator(value, chanTest)
+	isValid := <-chanTest
+	require.True(t, isValid)
 
 	value = "007example"
-	matched = DuplicatesValidator(value)
-
-	require.False(t, matched)
+	go DuplicatesValidator(value, chanTest)
+	isValid = <-chanTest
+	require.False(t, isValid)
 }

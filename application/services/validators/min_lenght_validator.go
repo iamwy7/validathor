@@ -2,11 +2,11 @@ package validators
 
 import "regexp"
 
-func MinLenghtValidator(pass string) bool {
+func MinLenghtValidator(pass string, c chan bool) {
 	match, err := regexp.Match(".{9,}", []byte(pass))
 
 	if err != nil {
-		return false
+		c <- false
 	}
-	return match
+	c <- match
 }

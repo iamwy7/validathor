@@ -8,11 +8,13 @@ import (
 
 func TestValidators_DigitValidator(t *testing.T) {
 	value := "something"
-	matched := DigitValidator(value)
-	require.False(t, matched)
+	chanTest := make(chan bool)
+	go DigitValidator(value, chanTest)
+	isValid := <-chanTest
+	require.False(t, isValid)
 
 	value = "007example"
-	matched = DigitValidator(value)
-
-	require.True(t, matched)
+	go DigitValidator(value, chanTest)
+	isValid = <-chanTest
+	require.True(t, isValid)
 }

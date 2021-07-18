@@ -8,11 +8,13 @@ import (
 
 func TestValidators_UpperValidator(t *testing.T) {
 	value := "Something$"
-	matched := UpperValidator((value))
-	require.True(t, matched)
+	chanTest := make(chan bool)
+	go UpperValidator(value, chanTest)
+	isValid := <-chanTest
+	require.True(t, isValid)
 
 	value = "someth1ng$3ls3"
-	matched = UpperValidator((value))
-
-	require.False(t, matched)
+	go UpperValidator(value, chanTest)
+	isValid = <-chanTest
+	require.False(t, isValid)
 }

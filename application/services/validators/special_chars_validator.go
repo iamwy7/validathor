@@ -2,11 +2,11 @@ package validators
 
 import "regexp"
 
-func SpecialCharsValidator(pass string) bool {
+func SpecialCharsValidator(pass string, c chan bool) {
 	match, err := regexp.Match("[!@#$%^&*()-+]", []byte(pass))
 
 	if err != nil {
-		return false
+		c <- false
 	}
-	return match
+	c <- match
 }

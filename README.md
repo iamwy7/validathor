@@ -6,7 +6,7 @@ Esse é um pequeno validador de senhas, porém eficiente.
 	- Docker:
 Com o comando abaixo: 
         ```bash
-        docker run -p 9000:9000 wy7images/iti-challenge:v1.0.0
+        docker run -p 9000:9000 wy7images/iti-challenge:latest
         ```
     - Executável: 
         Você pode baixar um executável para seu linux nesse [link](https://github.com/wy7-source/iti-challenge/releases)
@@ -55,6 +55,10 @@ Com o comando abaixo:
     Criando validações separadas e customizadas, tirando assim a possibilidade das validações serem feitas unica e exclusivamente no domínio, cria a necessidade de ter testes unitários para cada validação.
 
     Portanto, cada regra de negócio tem uma validação, e cada validação tem seu teste unitário.
+
+- Multithreading:
+    Com validações separadas, o serviço pode escolher como gerenciar o processamento. E com isso, optei por fazer as validações de forma multithreading com as rotinas do Go Lang, e também com o Semaphore Pattern.
+    Todo o serviço foi comentado inclusive com links úteis para entendimento do fluxo do código. Bem tranquilo :)
 
 - Execução da Aplicação:
     Foi criada uma CLI para interagir com a aplicação. 

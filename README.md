@@ -45,7 +45,7 @@ Com o comando abaixo:
 
     O Motivo é simples: Single Responsability Segregation + Domínios Ricos.
 
-    Caso eu optasse por validações somente no domínio, ele seria em sí Rico, mas a extensibilidade, e os testes dissa opção seriam caóticos. Por isso eu implemento sim uma validação no Domínio para salientar a importancia de ter um domínio bem ou minimamente validado, e segrego as validações, para que sejam extensíveis, de fácil manutenção, e "plugáveis".
+    Caso eu optasse por validações somente no domínio, ele seria em sí Rico, mas a extensibilidade, e os testes dessa opção seriam caóticos. Por isso eu implemento sim uma validação no Domínio para salientar a importancia de ter um domínio bem ou minimamente validado, e segrego as validações, para que sejam extensíveis, de fácil manutenção, e "plugáveis".
 
     A causa dessa decisão está no tópico abaixo.
 

@@ -2,11 +2,11 @@ package validators
 
 import "regexp"
 
-func LowerValidator(pass string) bool {
+func LowerValidator(pass string, c chan bool) {
 	match, err := regexp.Match("[a-z]", []byte(pass))
 
 	if err != nil {
-		return false
+		c <- false
 	}
-	return match
+	c <- match
 }

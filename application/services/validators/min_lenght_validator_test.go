@@ -8,11 +8,14 @@ import (
 
 func TestValidators_MinLenghtValidator(t *testing.T) {
 	value := "SOMEThING123890"
-	matched := MinLenghtValidator(value)
-	require.True(t, matched)
+	chanTest := make(chan bool)
+	go MinLenghtValidator(value, chanTest)
+	isValid := <-chanTest
+	require.True(t, isValid)
 
 	value = "EXAMPLE!"
-	matched = MinLenghtValidator(value)
+	go MinLenghtValidator(value, chanTest)
+	isValid = <-chanTest
 
-	require.False(t, matched)
+	require.False(t, isValid)
 }

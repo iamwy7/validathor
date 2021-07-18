@@ -8,11 +8,13 @@ import (
 
 func TestValidators_LowerValidator(t *testing.T) {
 	value := "SOMEThING"
-	matched := DuplicatesValidator(value)
-	require.True(t, matched)
+	chanTest := make(chan bool)
+	go LowerValidator(value, chanTest)
+	isValid := <-chanTest
+	require.True(t, isValid)
 
 	value = "EXAMPLE"
-	matched = DuplicatesValidator(value)
-
-	require.False(t, matched)
+	go LowerValidator(value, chanTest)
+	isValid = <-chanTest
+	require.False(t, isValid)
 }

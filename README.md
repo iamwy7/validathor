@@ -71,7 +71,7 @@ Com o comando abaixo:
 
 - Fluxo dentro da aplicação:
     - Primeiro, a requisição chega ao Handler responsável pelo endpoint "*/validate*", e qualquer problema de serealização no endpoint, ele retornará o erro.
-    - É feito o bind/hydrate da dto para a struct de domínio. Se o domónio estiver válido, continua, se não, retorna false.
+    - É feito o bind/hydrate da dto para a struct de domínio. Se o domínio estiver válido, continua, se não, retorna false.
     - E enfim todas as validações entram em ação através do serviço. Se a senha for válida. retorna true, se não for, false (assim espero).
 
 <br>

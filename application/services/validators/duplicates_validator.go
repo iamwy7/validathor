@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func DuplicatesValidator(pass string) bool {
+func DuplicatesValidator(pass string, c chan bool) {
 	/*  The range form of the for loop iterates over a slice or map.
 		He return 2 values, the key and rune. In this case, i dont use the key, only the rune.
 	See more: https://tour.golang.org/moretypes/16
@@ -14,8 +14,8 @@ func DuplicatesValidator(pass string) bool {
 		// By the way, rune can hold a value, but we cant use like a value, so, i made a explicit cast.
 		duplicates := strings.Count(pass, string(r))
 		if duplicates > 1 {
-			return false
+			c <- false
 		}
 	}
-	return true
+	c <- true
 }

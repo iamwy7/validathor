@@ -8,11 +8,13 @@ import (
 
 func TestValidators_SpecialCharsValidator(t *testing.T) {
 	value := "SOM+T°hING190"
-	matched := SpecialCharsValidator(value)
-	require.True(t, matched)
+	chanTest := make(chan bool)
+	go SpecialCharsValidator(value, chanTest)
+	isValid := <-chanTest
+	require.True(t, isValid)
 
 	value = "EXAMPLE°123sss"
-	matched = SpecialCharsValidator(value)
-
-	require.False(t, matched)
+	go SpecialCharsValidator(value, chanTest)
+	isValid = <-chanTest
+	require.False(t, isValid)
 }

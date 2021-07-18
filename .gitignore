@@ -15,6 +15,5 @@
 # vendor/
 
 # Custom
-Dockerfile
 docker-compose.*
 test.*

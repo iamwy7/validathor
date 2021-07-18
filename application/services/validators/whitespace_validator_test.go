@@ -8,11 +8,13 @@ import (
 
 func TestValidators_WhiteSpacesValidator(t *testing.T) {
 	value := "something"
-	matched := WhiteSpacesValidator(value)
-	require.True(t, matched)
+	chanTest := make(chan bool)
+	go WhiteSpacesValidator(value, chanTest)
+	isValid := <-chanTest
+	require.True(t, isValid)
 
 	value = "007exa mple"
-	matched = WhiteSpacesValidator(value)
-
-	require.False(t, matched)
+	go WhiteSpacesValidator(value, chanTest)
+	isValid = <-chanTest
+	require.False(t, isValid)
 }

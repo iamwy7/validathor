@@ -8,7 +8,7 @@ type PasswordDto struct {
 	Value string `json:"value"`
 }
 
-// Hydrate can transfer data of dto to eproduct type Password of application
+// Hydrate can transfer data of dto to Password type.
 func (p *PasswordDto) Hydrate(password *domain.Password) error {
 
 	password.SetValue(p.Value)

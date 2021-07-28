@@ -48,7 +48,7 @@ You also can use the official image to run the API on a isolated container:
 ```bash
 docker run -p 9000:9000 wy7images/pass-legitimator:latest	
 ```
-So send POST the password to validate on *localhost:9000/validate* with this body:
+So send the password over POST to validate on *localhost:9000/validate* with this body:
 ```bash
   {
       "value": "AbTp9!fok"

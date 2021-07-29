@@ -1,3 +1,4 @@
+// Package domain is where the main software entities are.
 package domain
 
 import "github.com/asaskevich/govalidator"
@@ -11,6 +12,7 @@ type PasswordInterface interface {
 	IsValid() (bool, error)
 }
 
+// Password is the principal entity.
 type Password struct {
 	value string `valid:"required"`
 }
@@ -27,6 +29,8 @@ func (p *Password) SetValue(value string) {
 	p.value = value
 }
 
+// IsValid is used to validate the entity.
+// It returns if the password is valid and any validation error encountered.
 func (p *Password) IsValid() (bool, error) {
 	_, err := govalidator.ValidateStruct(p)
 	if err != nil {

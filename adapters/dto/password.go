@@ -1,9 +1,12 @@
+// Package dto provides Data Transfer Objects to receive requests
+// over API.
 package dto
 
 import (
 	"github.com/wy7-source/iti-challenge/application/domain"
 )
 
+// PasswordDto is the value received by API.
 type PasswordDto struct {
 	Value string `json:"value"`
 }

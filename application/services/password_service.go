@@ -1,3 +1,4 @@
+// Package services provides all services that adapters can use to work.
 package services
 
 import (
@@ -5,6 +6,7 @@ import (
 	"github.com/wy7-source/iti-challenge/application/services/validators"
 )
 
+// PasswordService is the principal service.
 type PasswordService struct {
 }
 
@@ -12,6 +14,9 @@ func NewPasswordService() *PasswordService {
 	return &PasswordService{}
 }
 
+// Validate is used to validate the password.
+// Receive the Password and validate it with multithreading.
+// It returns if the password is valid, or not.
 func (p *PasswordService) Validate(password domain.PasswordInterface) bool {
 	/*
 		For performance purpouses only, we gonna work with channels;

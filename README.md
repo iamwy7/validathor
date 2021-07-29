@@ -2,6 +2,9 @@
 [![Go-Shield]][go-shield]
 [![Apache-Shield]][apache-shield]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+<br>
+[![Testing](https://github.com/wy7-source/pass-legitimator/actions/workflows/testing_build.yml/badge.svg)](https://github.com/wy7-source/pass-legitimator/actions/workflows/testing_build.yml)
+[![Linting](https://github.com/wy7-source/pass-legitimator/actions/workflows/golangci_lint.yml/badge.svg)](https://github.com/wy7-source/pass-legitimator/actions/workflows/golangci_lint.yml)
 
 That's a smaller and efficient password validator.
 

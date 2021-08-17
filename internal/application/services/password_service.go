@@ -2,8 +2,8 @@
 package services
 
 import (
-	"github.com/wy7-source/iti-challenge/application/domain"
-	"github.com/wy7-source/iti-challenge/application/services/validators"
+	"github.com/wy7-source/pass-legitimator/internal/application/domain"
+	"github.com/wy7-source/pass-legitimator/internal/application/services/validators"
 )
 
 // PasswordService is the principal service.

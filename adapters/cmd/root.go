@@ -1,5 +1,5 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2021 Wythor F. Bazan wythorbazan@gmail.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "iti-challenge",
-	Short: "iti-challenge it's a smaller password validator.",
+	Use:   "pass-legitimator",
+	Short: "pass-legitimator it's a smaller password validator.",
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -48,7 +48,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.iti-challenge.yaml)")
+	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.pass-legitimator.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
@@ -65,10 +65,10 @@ func initConfig() {
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
 
-		// Search config in home directory with name ".iti-challenge" (without extension).
+		// Search config in home directory with name ".pass-legitimator" (without extension).
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
-		viper.SetConfigName(".iti-challenge")
+		viper.SetConfigName(".pass-legitimator")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match

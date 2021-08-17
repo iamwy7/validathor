@@ -1,5 +1,5 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2021 Wythor F. Bazan wythorbazan@gmail.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/wy7-source/iti-challenge/adapters/cmd"
+import "github.com/wy7-source/pass-legitimator/adapters/cmd"
 
 func main() {
 	cmd.Execute()

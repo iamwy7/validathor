@@ -1,6 +1,6 @@
 // Package api provides one way to interact with application.
 // More Specificly, one simple HTTP Server/API.
-package api
+package server
 
 import (
 	"encoding/json"
@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/wy7-source/iti-challenge/adapters/dto"
-	"github.com/wy7-source/iti-challenge/application/domain"
+	"github.com/wy7-source/pass-legitimator/adapters/dto"
+	"github.com/wy7-source/pass-legitimator/internal/application/domain"
 )
 
 // Server is our HTTP server.

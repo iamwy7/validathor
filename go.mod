@@ -1,4 +1,4 @@
-module github.com/wy7-source/iti-challenge
+module github.com/wy7-source/pass-legitimator
 
 go 1.16
 

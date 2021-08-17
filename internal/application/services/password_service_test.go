@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/wy7-source/iti-challenge/application/domain"
+	"github.com/wy7-source/pass-legitimator/internal/application/domain"
 )
 
 var passwordService domain.PasswordServiceInterface

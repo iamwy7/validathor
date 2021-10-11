@@ -1,4 +1,4 @@
-# pass-legitimator 
+# validathor
 [![Go-Shield]][go-shield]
 [![Apache-Shield]][apache-shield]
 [![LinkedIn][linkedin-shield]][linkedin-url]
